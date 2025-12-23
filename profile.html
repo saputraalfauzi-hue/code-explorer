@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Explorer - Profil</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo" onclick="window.location.href='index.html'">
+                    <i class="fas fa-arrow-left"></i>
+                    <h2>Profil</h2>
+                </div>
+                <div class="user-menu">
+                    <button class="btn-edit" id="editProfileBtn">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="profile-content">
+            <div class="profile-header">
+                <div class="profile-info">
+                    <div class="profile-avatar-container">
+                        <img id="profileAvatar" src="https://i.pravatar.cc/150" alt="Profile Picture">
+                    </div>
+                    <div class="profile-details">
+                        <h1 id="profileName">Loading...</h1>
+                        <p id="profileEmail">Loading...</p>
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <strong id="postCount">0</strong>
+                                <span>Postingan</span>
+                            </div>
+                            <div class="stat">
+                                <strong id="likeCount">0</strong>
+                                <span>Disukai</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-tabs">
+                <button class="tab-btn active" data-tab="posts">Postingan Saya</button>
+                <button class="tab-btn" data-tab="likes">Disukai</button>
+            </div>
+
+            <div class="tab-content active" id="postsTab">
+                <div class="user-posts" id="userPostsContainer"></div>
+                <div id="noUserPosts" class="empty-state">
+                    <i class="fas fa-code"></i>
+                    <h3>Belum ada postingan</h3>
+                    <p>Mulai bagikan kode Anda!</p>
+                    <button class="btn-primary" onclick="window.location.href='post.html'">Buat Postingan</button>
+                </div>
+            </div>
+
+            <div class="tab-content" id="likesTab">
+                <div class="liked-posts" id="likedPostsContainer"></div>
+                <div id="noLikedPosts" class="empty-state">
+                    <i class="fas fa-heart"></i>
+                    <h3>Belum ada postingan yang disukai</h3>
+                    <p>Sukai postingan untuk melihatnya di sini</p>
+                </div>
+            </div>
+            
+            <div class="logout-section">
+                <button class="btn-logout" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Keluar
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="editProfileModal">
+        <div class="modal-content profile-modal">
+            <div class="modal-header">
+                <h2>Edit Profil</h2>
+                <button class="close-modal" id="closeEditModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="editName">Nama Lengkap</label>
+                    <input type="text" id="editName" placeholder="Nama lengkap">
+                </div>
+                
+                <div class="form-group">
+                    <label for="editBio">Bio</label>
+                    <textarea id="editBio" placeholder="Tentang Anda..." rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Avatar</label>
+                    <div class="avatar-options">
+                        <div class="avatar-option" data-avatar="1">
+                            <img src="https://i.pravatar.cc/100?img=1" alt="Avatar 1">
+                        </div>
+                        <div class="avatar-option" data-avatar="2">
+                            <img src="https://i.pravatar.cc/100?img=5" alt="Avatar 2">
+                        </div>
+                        <div class="avatar-option" data-avatar="3">
+                            <img src="https://i.pravatar.cc/100?img=8" alt="Avatar 3">
+                        </div>
+                        <div class="avatar-option" data-avatar="4">
+                            <img src="https://i.pravatar.cc/100?img=12" alt="Avatar 4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelEditBtn">Batal</button>
+                <button class="btn-primary" id="saveProfileBtn">Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="profile.js"></script>
+</body>
+</html>

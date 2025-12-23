@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Explorer - Beranda</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container" id="appContainer">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-code logo-icon"></i>
+                    <h1>Code Explorer</h1>
+                </div>
+                <div class="user-menu">
+                    <div class="user-avatar" onclick="window.location.href='profile.html'">
+                        <img id="headerAvatar" src="https://i.pravatar.cc/40" alt="User Avatar">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="content">
+                <div class="post-form">
+                    <div class="post-form-header">
+                        <img id="currentUserAvatar" src="https://i.pravatar.cc/40" alt="User Avatar">
+                        <div class="post-form-input">
+                            <input type="text" id="quickPost" placeholder="Bagikan kode Anda hari ini..." readonly onclick="window.location.href='post.html'">
+                        </div>
+                    </div>
+                    <div class="post-form-actions">
+                        <div class="action-item" onclick="window.location.href='post.html'">
+                            <i class="fas fa-plus"></i>
+                            <span>Buat Postingan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="posts-container" id="postsContainer"></div>
+                
+                <div id="loadingPosts" class="loading">
+                    <div class="spinner"></div>
+                    <p>Memuat postingan...</p>
+                </div>
+                
+                <div id="noPosts" class="empty-state">
+                    <i class="fas fa-code"></i>
+                    <h3>Belum ada postingan</h3>
+                    <p>Jadilah yang pertama membagikan kode!</p>
+                    <button class="btn-primary" onclick="window.location.href='post.html'">Buat Postingan Pertama</button>
+                </div>
+            </div>
+        </main>
+
+        <nav class="bottom-nav">
+            <div class="nav-item active" onclick="window.location.href='index.html'">
+                <i class="fas fa-home"></i>
+                <span>Beranda</span>
+            </div>
+            <div class="nav-item add-post" onclick="window.location.href='post.html'">
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="nav-item" onclick="window.location.href='profile.html'">
+                <i class="fas fa-user"></i>
+                <span>Profil</span>
+            </div>
+        </nav>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

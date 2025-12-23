@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Explorer - Buat Postingan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo" onclick="window.location.href='index.html'">
+                    <i class="fas fa-arrow-left"></i>
+                    <h2>Buat Postingan</h2>
+                </div>
+                <div class="user-menu">
+                    <button class="btn-post-header" id="submitPostBtn">
+                        Posting
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="post-content">
+            <div class="post-form-container">
+                <div class="form-group">
+                    <label for="postTitle">Judul Kode</label>
+                    <input type="text" id="postTitle" placeholder="Contoh: Animasi Loading CSS" maxlength="100">
+                </div>
+                
+                <div class="form-group">
+                    <label for="postDescription">Deskripsi</label>
+                    <textarea id="postDescription" placeholder="Jelaskan tentang kode yang Anda bagikan..." rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="postCode">Kode</label>
+                    <div class="code-type-selector">
+                        <button type="button" class="code-type-btn active" data-type="html">HTML</button>
+                        <button type="button" class="code-type-btn" data-type="css">CSS</button>
+                        <button type="button" class="code-type-btn" data-type="js">JavaScript</button>
+                    </div>
+                    <div class="code-editor-container">
+                        <textarea id="postCode" placeholder="Masukkan kode Anda di sini..." rows="15"></textarea>
+                        <div class="code-meta">
+                            <span id="charCount">0 karakter</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="postTags">Tag (pisahkan dengan koma)</label>
+                    <input type="text" id="postTags" placeholder="html, css, animation">
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="post.js"></script>
+</body>
+</html>
